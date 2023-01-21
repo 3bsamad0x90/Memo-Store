@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\adminPanelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard',[adminPanelController::class, 'index'])->name('dashboard');
 
 require __DIR__.'/auth.php';
