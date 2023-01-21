@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+require __DIR__.'/admin.php';
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard',[adminPanelController::class, 'index'])->name('dashboard');
-
+route::post('/logout', [adminPanelController::class, 'logout'])->name('logout');
 require __DIR__.'/auth.php';

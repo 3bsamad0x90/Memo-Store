@@ -15,4 +15,10 @@ class adminPanelController extends Controller
             'active' => 'dashboard'
         ]);
     }
+
+
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('login');
+    }
 }
