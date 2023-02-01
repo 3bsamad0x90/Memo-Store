@@ -12,7 +12,13 @@ class adminPanelController extends Controller
         return view('AdminPanel.index',
         [
             'title' => 'Admin Panel',
-            'active' => 'dashboard'
+            'active' => 'dashboard',
+            'breadcrumbs' => [
+                [
+                    'url' => route('dashboard'),
+                    'text' => 'Dashboard',
+                ]
+            ]
         ]);
     }
 
