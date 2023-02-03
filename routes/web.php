@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',[adminPanelController::class, 'index'])->name('dashboard');
-route::post('/logout', [adminPanelController::class, 'logout'])->name('logout');
+Route::middleware('isAdmin')->group(function () {
+    Route::get('/dashboard',[adminPanelController::class, 'index'])->name('dashboard');
+    route::post('/logout', [adminPanelController::class, 'logout'])->name('logout');
+});
+
 require __DIR__.'/auth.php';
