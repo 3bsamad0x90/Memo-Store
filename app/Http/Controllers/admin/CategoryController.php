@@ -13,7 +13,13 @@ class CategoryController extends Controller
         return view('AdminPanel.categories.index',
         [
             'title' => 'Categories',
-            'active' => 'categories'
+            'active' => 'categories',
+            'breadcrumbs' => [
+                [
+                    'url' => '',
+                    'text' => 'Categories',
+                ]
+            ]
         ], compact('categories'));
     }
 }
